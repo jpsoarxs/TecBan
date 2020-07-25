@@ -1,6 +1,6 @@
 import { Request, Response } from 'express'
 
-class TesteController {
+class ConsentController {
   async index(req: Request, res: Response) {
 
     return res.send("Hello word");
@@ -8,4 +8,4 @@ class TesteController {
   }
 }
 
-export default TesteController;
+export default ConsentController;

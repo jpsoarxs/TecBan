@@ -1,11 +1,11 @@
 import express from 'express'
 
-import TesteControllers from './controllers/TesteControllers'
+import ConsentControllers from './controllers/ConsentControllers'
 
 const routes = express.Router();
 
-const teste = new TesteControllers();
+const consent = new ConsentControllers();
 
-routes.get('/', teste.index)
+routes.get('/', consent.index)
 
 export default routes;
