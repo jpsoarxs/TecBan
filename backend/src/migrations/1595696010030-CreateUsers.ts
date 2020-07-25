@@ -6,7 +6,7 @@ export default class CreateUsers1595696010030 implements MigrationInterface {
 
     await queryRunner.createTable(
       new Table({
-        name: 'user_tokens',
+        name: 'users',
         columns: [
           {
             name: 'id',
@@ -16,14 +16,13 @@ export default class CreateUsers1595696010030 implements MigrationInterface {
             default: 'uuid_generate_v4()', // only in postgres
           },
           {
-            name: 'token',
-            type: 'uuid',
-            generationStrategy: 'uuid',
-            default: 'uuid_generate_v4()', // only in postgres
+            name: 'cpf',
+            type: 'varchar',
+            isUnique: true,
           },
           {
-            name: 'user_id',
-            type: 'uuid',
+            name: 'password',
+            type: 'varchar',
           },
           {
             name: 'created_at',
@@ -36,21 +35,11 @@ export default class CreateUsers1595696010030 implements MigrationInterface {
             default: 'now()',
           },
         ],
-        foreignKeys: [
-          {
-            name: 'TokenUser',
-            columnNames: ['user_id'],
-            referencedColumnNames: ['id'],
-            referencedTableName: 'users',
-            onDelete: 'CASCADE',
-            onUpdate: 'CASCADE',
-          },
-        ],
       }),
     );
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropTable('user_tokens');
+    await queryRunner.dropTable('users');
   }
 }
