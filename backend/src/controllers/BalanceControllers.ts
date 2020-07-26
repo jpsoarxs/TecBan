@@ -32,7 +32,13 @@ class BalanceController {
         },
         httpsAgent
       }).then((response) => {
-        return res.json(response.data)
+        var total = 0
+
+        response.data.Data.Balance.map(account => {
+          total += Number(account.Amount.Amount)
+        })
+
+        return res.json({total_amount: total,...response.data})
       }, (error) => {
         return res.status(400).json(error.response.data)
       })
