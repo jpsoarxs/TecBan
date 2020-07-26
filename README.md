@@ -68,15 +68,13 @@ $ git clone https://github.com/jpsoarxs/TecBan.git
 $ cd TecBan/backend
 
 # Install dependencies
-$ yarn install
-or
-$ yarn
+$ yarn install or $ yarn
 
 # Config .env
-rename .env.example to .env and edit
+# rename ".env.example" to ".env" and edit
 
 # Config certificates
-select a bank account and paste folder "certs" in "src"
+# select a bank account and paste folder "certs" in "src"
 
 # Start in watch mode
 $ yarn dev
