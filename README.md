@@ -58,25 +58,30 @@ To clone and run this application, you'll need [Git](https://git-scm.com), [Node
 
 From your command line:
 
-### Install API 
+### Run API 
 
 ```bash
 # Clone this repository
-$ git clone https://github.com/jpsoarxs/MH-3
+$ git clone https://github.com/jpsoarxs/TecBan.git
 
 # Go into the repository
-$ cd MH-3/backend
+$ cd TecBan/backend
 
 # Install dependencies
 $ yarn install
+or
+$ yarn
 
-# Start Strapi in watch mode
-$ yarn develop
+# Config .env
+rename .env.example to .env and edit
 
-# Start Strapi without watch mode
-$ yarn start
+# Config certificates
+select a bank account and paste folder "certs" in "src"
 
-# running default port 1337
+# Start in watch mode
+$ yarn dev
+
+# running default port 3000
 ```
 
 ## :memo: License
