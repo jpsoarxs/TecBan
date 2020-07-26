@@ -76,6 +76,12 @@ $ yarn install or $ yarn
 # Config certificates
 # select a bank account and paste folder "certs" in "src"
 
+# Create database tables
+$ yarn knex:migrate
+
+# Create fake teste data to database
+$ yarn knex:seed
+
 # Start in watch mode
 $ yarn dev
 
