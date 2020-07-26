@@ -1,15 +1,15 @@
-import express from 'express'
+import express from 'express';
 
 import ConsentControllers from '../controllers/ConsentControllers';
-
-import userRoutes from './user.routes';
+import AuthControllers from '../controllers/AuthControllers';
 
 const routes = express.Router();
 
 const consent = new ConsentControllers();
+const auth = new AuthControllers();
 
-routes.get('/', consent.index);
+routes.post('/consent', consent.create);
 
-routes.use('/users', userRoutes);
+routes.post('/auth', auth.index)
 
 export default routes;
