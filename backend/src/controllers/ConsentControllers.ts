@@ -8,7 +8,6 @@ require('dotenv/config')
 
 class ConsentController {
   async create(req: Request, res: Response) {
-
     const httpsAgent = new https.Agent({
       cert: fs.readFileSync(path.resolve(__dirname, '..', 'certs', 'client_certificate.crt')),
       key: fs.readFileSync(path.resolve(__dirname, '..', 'certs', 'client_private_key.key')),
@@ -85,6 +84,42 @@ class ConsentController {
         });
       });
     });
+
+  }
+
+  async index(req: Request, res: Response) {
+
+    const { code } = req.body
+
+    if (!req.body.code) {
+      return res.status(401).json({ message: 'Missing Token in Body' });
+    }
+
+    const httpsAgent = new https.Agent({
+      cert: fs.readFileSync(path.resolve(__dirname, '..', 'certs', 'client_certificate.crt')),
+      key: fs.readFileSync(path.resolve(__dirname, '..', 'certs', 'client_private_key.key')),
+      rejectUnauthorized: false,
+    });
+    
+    axios({
+        method: 'post',
+        url: `${process.env.URL_AS}/token`,
+        data: qs.stringify({
+          grant_type: 'authorization_code',
+          scope: 'accounts',
+          code,
+          redirect_uri: 'http://www.google.co.uk'
+        }),
+        headers : {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          'Authorization': `Basic ${process.env.BASIC_KEY}`
+        },
+        httpsAgent
+      }).then((response) => {
+        return res.json(response.data)
+      }, (error) => {
+        return res.status(400).json(error.response.data)
+      })
 
   }
 }
