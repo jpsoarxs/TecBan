@@ -31,7 +31,7 @@
   <a href="#memo-license">License</a>
 </p>
 
-## :information_source: What's Hackthon TecBan?
+## :information_source: What's Hackathon TecBan?
 
 É uma iniciativa da TecBan que visa disseminar e educar as pessoas quanto as possibilidades que conectam o mundo físico ao mundo digital. Nesta edição, a companhia busca soluções que unam criatividade aos dados e transações disponíveis no Open Banking.
 
