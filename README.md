@@ -84,7 +84,7 @@ $ yarn dev
 
 ## :memo: License
 
-This project is under the MIT license. See the [LICENSE](https://github.com/DanielObara/NLW-1.0/blob/master/LICENSE) for details.
+This project is under the MIT license. See the [LICENSE](https://github.com/jpsoarxs/TecBan/blob/master/LICENSE) for details.
 
 [nodejs]: https://nodejs.org/
 [typescript]: https://www.typescriptlang.org/
