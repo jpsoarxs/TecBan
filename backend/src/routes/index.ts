@@ -9,9 +9,9 @@ const routes = express.Router();
 
 const consent = new ConsentControllers();
 
-routes.get('/', consent.index);
+routes.get('/consent', consent.index);
 
 routes.use('/users', userRoutes);
-routes.use('/session', SessionRoutes);
+routes.use('/sessions', SessionRoutes);
 
 export default routes;

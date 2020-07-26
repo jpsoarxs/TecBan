@@ -1,16 +1,30 @@
 import 'react-native-gesture-handler';
 
-import React from 'react';
-import { View, StatusBar } from 'react-native';
+import React, { useEffect } from 'react';
+import { View, StatusBar, Linking } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
+import axios from 'axios';
 
 import Routes from './routes';
 
 const App: React.FC = () => {
+
+  useEffect(() => {
+    const regex = new RegExp('[?&]code=([^&]+)')
+    Linking.addEventListener('url', (result) => {
+      const data = {code: result['url'].match(regex)[1]}
+      axios.post('http://localhost:3000/consent', data)
+      .then((response) => {
+        console.log("SUCESSO:", response);
+      }, (error) => {
+        console.log("ERRO:", error);
+      });
+    });
+  });
+
   return (
     <NavigationContainer>
-      <StatusBar barStyle="dark-content" backgroundColor="#DDD" />
-      <View style={{ flex: 1, backgroundColor: '#DDD' }}>
+      <View style={{ flex: 1 }}>
         <Routes />
       </View>
     </NavigationContainer>
